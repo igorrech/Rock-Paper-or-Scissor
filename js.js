@@ -1,65 +1,79 @@
 
+
+
+
 function computerPlay() {
-    let computer = Math.floor(Math.random()* 3)
-    if (computer == 0) {
-        return "paper"
+    let computerR = Math.floor(Math.random() * 3)
+    if ( computerR == 0) {
+        return "paper";
     }
-    else if (computer == 1) {
-        return "rock"
+    else if ( computerR == 1 ) {
+        return "rock";
     }
     else {
-        return "scissor"
+        return "scissor";
     }
 }
 
-function playround(playerSelection, computerSelection) {
-            playerSelection = playerSelection.toLowerCase();
-            computerSelection = computerSelection.toLowerCase();
+
+// console.log(computer);
+
+
+
+// console.log(playerPlay);
+
+let playerPlay = 0;
+
+let placarPlayer = 0;
+let placarComputer = 0;
+
+function playRound (playerPlay, computer) {
+
+    if (playerPlay == "paper" && computer == "paper") {
+        return "A tie";
+    }
+        else if ( playerPlay == "paper" && computer == "rock") {
+            placarPlayer = ++placarPlayer;
+            return "You Win!";
             
-            if ( playerSelection == "rock" && computerSelection == "paper") {
-                return "You lose! Paper beats Rock"
+        }
+            else if (playerPlay == "paper" && computer == "scissor") {
+                placarComputer = ++placarComputer;
+                return "You Loss!";
             }
-
-            else if ( playerSelection == "rock" && computerSelection == "rock") {
-                return "A tie";
+            else if ( playerPlay == "rock" && computer == "rock") {
+                return "A tie!";
             }
-
-            else if ( playerSelection == "rock" && computerSelection == "scissor") {
-                return "You Win! Rock beats Scissor";
-            }
-
-            else if ( playerSelection == "paper" && computerSelection == "paper") {
-                return "A tie";
-            }
-
-            else if ( playerSelection == "paper" && computerSelection == "rock") {
-                return "You Win! Paper beats rock";
-            }
-
-            else if ( playerSelection == "paper" && computerSelection == "scissor") {
-                return "You lose! scissor beats paper";
-            }
-
-            else if ( playerSelection == "scissor" && computerSelection == "paper") {
-                return "You Win! Scissor beats paper";
-            }
-
-            else if ( playerSelection == "scissor" && computerSelection == "rock") {
-                return "You lose! Rock beats scissor";
-            }
-
-            else if ( playerSelection == "scissor" && computerSelection == "scissor"){
-                return "A tie";
-            }
-
-}
+                else if (playerPlay == "rock" && computer == "scissor") {
+                    placarPlayer = ++placarPlayer;
+                    return "You Win!";
+                }
+                else if ( playerPlay == "rock" && computer == "paper") {
+                    placarComputer = ++placarComputer;
+                    return "You Loss!";
+                }
+                    else if (playerPlay == "scissor" && computer == "scissor") {
+                        return "A tie!"; 
+                    }
+                    else if ( playerPlay == "scissor" && computer == "rock") {
+                        placarComputer = ++placarComputer;
+                        return "You Loss!"
+                    }
+                        else if (playerPlay == "scissor" && computer == "paper") {
+                            placarPlayer = ++placarPlayer;
+                            return "You Win!";
+                        }
+        }       
 
 
 
-const player = prompt("Paper, Rock or Scissor ");
-const computer = computerPlay();
-
-console.log(playround(player, computer));
 
 
+    for (let i = 0; i < 5; i++) {
+        playerPlay = prompt("Paper, Rock or Scissor?").toLowerCase();
+    console.log(playRound(playerPlay, computerPlay()));
+     }
 
+
+console.log("Player ", placarPlayer);
+console.log("Computer ", placarComputer);
