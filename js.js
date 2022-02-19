@@ -16,11 +16,6 @@ function computerPlay() {
 }
 
 
-// console.log(computer);
-
-
-
-// console.log(playerPlay);
 
 let playerPlay = 0;
 
@@ -68,11 +63,10 @@ function playRound (playerPlay, computer) {
 
 
 
-
-    for (let i = 0; i < 5; i++) {
-        playerPlay = prompt("Paper, Rock or Scissor?").toLowerCase();
+for (let i = 0; i < 5; i++) {
+    playerPlay = prompt("Paper, Rock or Scissor?").toLowerCase();
     console.log(playRound(playerPlay, computerPlay()));
-     }
+    }
 
 
 console.log("Player ", placarPlayer);
